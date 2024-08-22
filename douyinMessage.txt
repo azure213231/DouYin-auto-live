@@ -1,0 +1,238 @@
+type:1  弹幕消息
+{
+  "Type": 1,
+  "ProcessName": "chrome",
+  "Data": {
+    "MsgId": 7392413799821317183,
+    "User": {
+      "FollowingCount": 415,
+      "Id": 4264344913722724,
+      "ShortId": 82281133376,
+      "DisplayId": "82281133376",
+      "Nickname": "喜欢(ღ˘⌣˘ღ)",
+      "Level": 0,
+      "PayLevel": 0,
+      "Gender": 2,
+      "HeadImgUrl": "https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_o4ToQQD9AA8PrDDoAAgFBZkhIfedmPEC4ApjJA.jpeg?from=3067671334",
+      "SecUid": "MS4wLjABAAAA2pdB9MZdaUSvEwhxmsVkPBvjTIzj5BSEIaG2pOYk0CAt4gaP9a9K8tJbF4wBXeT4",
+      "FansClub": {
+        "ClubName": "",
+        "Level": 0
+      },
+      "FollowerCount": 316,
+      "FollowStatus": 1
+    },
+    "Onwer": {
+      "UserId": "4230573310873662",
+      "SecUid": "MS4wLjABAAAAMrL3Qn1ydOFQkOYHohTwK4veJ1HdugmCmGzTe8QIYMUVMGp5OZneapNO5l1IB9Gz",
+      "Nickname": "农村大萍子",
+      "HeadUrl": "https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_33310426f3140842b2a21fab2b006990.jpeg?from=3067671334",
+      "FollowStatus": 0
+    },
+    "Content": "求关注求关注求关注求关注求关注求关注求关注求关注求关注 鼓掌  鼓掌  鼓掌  鼓掌  鼓掌",
+    "RoomId": "7392408644719053580",
+    "WebRoomId": "456661845014"
+  }
+}
+
+
+type:2 点赞
+{
+  "Type": 2,
+  "ProcessName": "chrome",
+  "Data": {
+    "Count": 6,
+    "Total": 190380,
+    "MsgId": 7392413830256611109,
+    "User": {
+      "FollowingCount": 110,
+      "Id": 1046336018068335,
+      "ShortId": 4125355251,
+      "DisplayId": "shangmeibuyi15",
+      "Nickname": "尚美窗帘定制丁姐",
+      "Level": 0,
+      "PayLevel": 0,
+      "Gender": 0,
+      "HeadImgUrl": "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_oQA67dEgCRAfqhEjAseLNntSAczNACAIyAjyH4.jpeg?from=3067671334",
+      "SecUid": "MS4wLjABAAAA9-mmJfQGZ74qDUy0ZNnpCwSyxk5r9AvGtd8_LPKCRlYFe46FpN63kWHKVZnW3Miy",
+      "FansClub": {
+        "ClubName": "",
+        "Level": 0
+      },
+      "FollowerCount": 58,
+      "FollowStatus": 0
+    },
+    "Onwer": {
+      "UserId": "4230573310873662",
+      "SecUid": "MS4wLjABAAAAMrL3Qn1ydOFQkOYHohTwK4veJ1HdugmCmGzTe8QIYMUVMGp5OZneapNO5l1IB9Gz",
+      "Nickname": "农村大萍子",
+      "HeadUrl": "https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_33310426f3140842b2a21fab2b006990.jpeg?from=3067671334",
+      "FollowStatus": 0
+    },
+    "Content": "尚美窗帘定制丁姐 为主播点了6个赞，总点赞190380",
+    "RoomId": "7392408644719053580",
+    "WebRoomId": "456661845014"
+  }
+}
+
+
+type:3 进入直播间
+{
+  "Type": 3,
+  "ProcessName": "chrome",
+  "Data": {
+    "CurrentCount": 31508,
+    "MsgId": 7392413835200566555,
+    "User": {
+      "FollowingCount": 942,
+      "Id": 616144491523678,
+      "ShortId": 4094220374,
+      "DisplayId": "mengbao24159",
+      "Nickname": "杏姐优选",
+      "Level": 0,
+      "PayLevel": 8,
+      "Gender": 2,
+      "HeadImgUrl": "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_o0zSAhCA0I2mtfQAqDvtAlvlPxA9CegZwyEGAA.jpeg?from=3067671334",
+      "SecUid": "MS4wLjABAAAAgYRuCnGzCVm5tIZ17-O-d7Mi14u70WGXlgpJ5DLKBYo",
+      "FansClub": {
+        "ClubName": "",
+        "Level": 0
+      },
+      "FollowerCount": 1691,
+      "FollowStatus": 0
+    },
+    "Onwer": {
+      "UserId": "4230573310873662",
+      "SecUid": "MS4wLjABAAAAMrL3Qn1ydOFQkOYHohTwK4veJ1HdugmCmGzTe8QIYMUVMGp5OZneapNO5l1IB9Gz",
+      "Nickname": "农村大萍子",
+      "HeadUrl": "https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_33310426f3140842b2a21fab2b006990.jpeg?from=3067671334",
+      "FollowStatus": 0
+    },
+    "Content": "杏姐优选 来了 直播间人数:31508",
+    "RoomId": "7392408644719053580",
+    "WebRoomId": "456661845014"
+  }
+}
+
+
+type:4 关注主播
+{
+  "Type": 4,
+  "ProcessName": "chrome",
+  "Data": {
+    "MsgId": 7392413826740685618,
+    "User": {
+      "FollowingCount": 536,
+      "Id": 3492514621297016,
+      "ShortId": 29976466506,
+      "DisplayId": "29976466506",
+      "Nickname": "吴俊兰",
+      "Level": 0,
+      "PayLevel": 1,
+      "Gender": 0,
+      "HeadImgUrl": "https://p26.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_3796_2975850990.jpeg?from=3067671334",
+      "SecUid": "MS4wLjABAAAA0TdqNJzSz881YP1yP0DI0aqj5AqoqnzJG5Vm-etSV0TDOCfVGUbviW-gLT3ufJx9",
+      "FansClub": {
+        "ClubName": "",
+        "Level": 0
+      },
+      "FollowerCount": 31,
+      "FollowStatus": 1
+    },
+    "Onwer": {
+      "UserId": "4230573310873662",
+      "SecUid": "MS4wLjABAAAAMrL3Qn1ydOFQkOYHohTwK4veJ1HdugmCmGzTe8QIYMUVMGp5OZneapNO5l1IB9Gz",
+      "Nickname": "农村大萍子",
+      "HeadUrl": "https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_33310426f3140842b2a21fab2b006990.jpeg?from=3067671334",
+      "FollowStatus": 0
+    },
+    "Content": "吴俊兰 关注了主播",
+    "RoomId": "7392408644719053580",
+    "WebRoomId": "456661845014"
+  }
+}
+
+type:5 送礼
+{
+  "Type": 5,
+  "ProcessName": "chrome",
+  "Data": {
+    "GiftId": 463,
+    "GiftName": "小心心4414",
+    "GroupId": 1721180473,
+    "GiftCount": 1,
+    "RepeatCount": 1,
+    "DiamondCount": 1,
+    "Combo": true,
+    "ImgUrl": "http://p3-webcast.douyinpic.com/img/webcast/7ef47758a435313180e6b78b056dda4e.png~tplv-obj.png",
+    "ToUser": null,
+    "MsgId": 7392413778123887654,
+    "User": {
+      "FollowingCount": 1563,
+      "Id": 96707464417,
+      "ShortId": 831924385,
+      "DisplayId": "831924385",
+      "Nickname": "辉煌腾达",
+      "Level": 0,
+      "PayLevel": 11,
+      "Gender": 0,
+      "HeadImgUrl": "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_df43c38f4c544a9f89707b19f1c9c6e9.jpeg?from=3067671334",
+      "SecUid": "MS4wLjABAAAAyt3ekiqfAG3mfCvPmFhIFPiB54MNglQ8NZe7zEbVx3M",
+      "FansClub": {
+        "ClubName": "",
+        "Level": 0
+      },
+      "FollowerCount": 335,
+      "FollowStatus": 0
+    },
+    "Onwer": {
+      "UserId": "4230573310873662",
+      "SecUid": "MS4wLjABAAAAMrL3Qn1ydOFQkOYHohTwK4veJ1HdugmCmGzTe8QIYMUVMGp5OZneapNO5l1IB9Gz",
+      "Nickname": "农村大萍子",
+      "HeadUrl": "https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_33310426f3140842b2a21fab2b006990.jpeg?from=3067671334",
+      "FollowStatus": 0
+    },
+    "Content": "辉煌腾达 送出 小心心(可连击) x 1个，增量1个",
+    "RoomId": "7392408644719053580",
+    "WebRoomId": "456661845014"
+  }
+}
+
+
+type:8 分享直播间
+{
+  "Type": 8,
+  "ProcessName": "chrome",
+  "Data": {
+    "ShareType": 112,
+    "MsgId": 7392413827205614371,
+    "User": {
+      "FollowingCount": 1065,
+      "Id": 99682871083,
+      "ShortId": 1018868830,
+      "DisplayId": "1018868830",
+      "Nickname": "熊淼",
+      "Level": 0,
+      "PayLevel": 10,
+      "Gender": 1,
+      "HeadImgUrl": "https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_e67aa371bd7c484993636744127b0390.jpeg?from=3067671334",
+      "SecUid": "MS4wLjABAAAAYZdFvUyi_Wiv-9ug_WGmvSgKtXEl1yYvHsE0hBmhBww",
+      "FansClub": {
+        "ClubName": "",
+        "Level": 0
+      },
+      "FollowerCount": 241,
+      "FollowStatus": 0
+    },
+    "Onwer": {
+      "UserId": "4230573310873662",
+      "SecUid": "MS4wLjABAAAAMrL3Qn1ydOFQkOYHohTwK4veJ1HdugmCmGzTe8QIYMUVMGp5OZneapNO5l1IB9Gz",
+      "Nickname": "农村大萍子",
+      "HeadUrl": "https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_33310426f3140842b2a21fab2b006990.jpeg?from=3067671334",
+      "FollowStatus": 0
+    },
+    "Content": "熊淼 分享了直播间到抖音好友",
+    "RoomId": "7392408644719053580",
+    "WebRoomId": "456661845014"
+  }
+}
