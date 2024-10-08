@@ -11,7 +11,8 @@ loop_sec = 0.1
 press_sec = 0.5
 list_name = 'douyin'
 # key_list = ('w', 's', 'a', 'd', 'j', 'k', 'u', 'i', 'z', 'x', 'f', 'enter', 'shift', 'backspace')
-key_list = ('000','666', '888','999','333')  #接收的指令白名单
+key_list = ('000','666', '888','999')  #接收的指令白名单
+like_min_count = 100 #点赞最小触发数量
 gift_key_list = ('小心心','玫瑰','抖音','人气票')  #接收的礼物指令白名单
 
 def init_redis():
@@ -106,13 +107,13 @@ def control(key_name):
             # pyautogui.keyUp(key_name)
             # time.sleep(press_sec)
 
-        if key_name == '333' or key_name == '333':
-            press_key = 'R'
-            # pyautogui.keyDown(press_key)
-            pyautogui.hotkey('ctrl', '9')
-            time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            # time.sleep(press_sec)
+        # if key_name == '333' or key_name == '333':
+        #     press_key = 'R'
+        #     # pyautogui.keyDown(press_key)
+        #     pyautogui.hotkey('ctrl', '9')
+        #     time.sleep(press_sec)
+        #     # pyautogui.keyUp(key_name)
+        #     # time.sleep(press_sec)
         #
         # if key_name == '灯' or key_name == '灯':
         #     press_key = 'R'
@@ -147,10 +148,24 @@ def control(key_name):
         #     # time.sleep(press_sec)
 
         if press_key != '':
-            print("发出指令: " + key_name + "，执行按键: " + press_key)
+            print("发出指令: " + key_name)
             # time.sleep(press_sec)
             # pyautogui.keyUp(key_name)
             print("结束指令", key_name)
+
+    # 点赞
+    if 'like:' in key_name:
+        # 使用 split() 方法分割字符串
+        parts = key_name.split(':')
+
+        # 获取冒号后的数字
+        if len(parts) > 1 and parts[1].isdigit():
+            like_count = int(parts[1])  # 取冒号后的部分
+            if like_count >= like_min_count:
+                # 点赞触发快捷键
+                print('触发点赞事件：' + str(like_count))
+                pyautogui.hotkey('ctrl', '9')
+                time.sleep(press_sec)
 
     # 礼物
     if key_name in gift_key_list:
@@ -198,7 +213,7 @@ def control(key_name):
 
 
         if press_key != '':
-            print("发出指令: " + key_name + "，执行按键: " + press_key)
+            print("发出指令: " + key_name)
             # time.sleep(press_sec)
             # pyautogui.keyUp(key_name)
             print("结束指令", key_name)

@@ -5,7 +5,7 @@ import redis
 
 list_name = 'douyin'
 # key_list = ('w', 's', 'a', 'd', 'j', 'k', 'u', 'i', 'z', 'x', 'f', 'enter', 'shift', 'backspace')
-key_list = ('000','666', '888','999','333')  #接收的指令白名单
+key_list = ('000','666', '888','999')  #接收的指令白名单
 gift_key_list = ('小心心','玫瑰','抖音','人气票')  #接收的礼物指令白名单
 
 def init_redis():
@@ -25,6 +25,7 @@ async def process():
                 message = json.loads(message)
                 # print(  message )
 
+                # 弹幕
                 if message.get("Type") == 1:
                     Data = json.loads(message.get("Data"))
                     speak_message = Data.get("Content")
@@ -41,7 +42,24 @@ async def process():
                         print('弹幕推送队列：', found_key)
                         r.rpush(list_name, found_key)
 
+                # 点赞
+                if message.get("Type") == 2:
+                    Data = json.loads(message.get("Data"))
+                    speak_message = Data.get("Count")
 
+                    r = init_redis()
+                    found_key = 'like:' + str(speak_message)
+                    #
+                    # for key in key_list:
+                    #     if key.lower() in speak_message.lower():
+                    #         found_key = key
+                    #         break
+
+                    if found_key:
+                        print('点赞推送队列：', found_key)
+                        r.rpush(list_name, found_key)
+
+                # 礼物
                 if message.get("Type") == 5:
                     Data = json.loads(message.get("Data"))
                     gift_name = Data.get("GiftName")
