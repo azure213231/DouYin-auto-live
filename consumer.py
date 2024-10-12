@@ -12,7 +12,8 @@ press_sec = 0.5
 list_name = 'douyin'
 # key_list = ('w', 's', 'a', 'd', 'j', 'k', 'u', 'i', 'z', 'x', 'f', 'enter', 'shift', 'backspace')
 key_list = ('000','666', '888','999')  #接收的指令白名单
-like_min_count = 100 #点赞最小触发数量
+last_like_count = 0 #上次点赞触发特效数量
+min_like_count = 100 #点赞最小触发数量
 gift_key_list = ('小心心','玫瑰','抖音','人气票')  #接收的礼物指令白名单
 
 def init_redis():
@@ -61,6 +62,7 @@ def print_window_titles():
         print(window.title)
 
 def control(key_name):
+    global last_like_count  # 声明使用全局变量
     # print("key_name =", key_name)
     if key_name == None:
         # print("本次无指令发出")
@@ -161,9 +163,10 @@ def control(key_name):
         # 获取冒号后的数字
         if len(parts) > 1 and parts[1].isdigit():
             like_count = int(parts[1])  # 取冒号后的部分
-            if like_count >= like_min_count:
+            if like_count - last_like_count >= min_like_count:
                 # 点赞触发快捷键
                 print('触发点赞事件：' + str(like_count))
+                last_like_count = like_count
                 pyautogui.hotkey('ctrl', '9')
                 time.sleep(press_sec)
 
