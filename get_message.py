@@ -45,7 +45,7 @@ async def process():
                 # 点赞
                 if message.get("Type") == 2:
                     Data = json.loads(message.get("Data"))
-                    speak_message = Data.get("Count")
+                    speak_message = Data.get("Total")
 
                     r = init_redis()
                     found_key = 'like:' + str(speak_message)
