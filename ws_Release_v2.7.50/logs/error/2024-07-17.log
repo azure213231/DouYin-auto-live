@@ -1,0 +1,26 @@
+2024-07-17 10:10:34.5468|ERROR| 程序初始化错误 System.TypeInitializationException: “BarrageGrab.AppSetting”的类型初始值设定项引发异常。 ---> System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 BarrageGrab.AppSetting..ctor()
+   在 BarrageGrab.AppSetting..cctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 BarrageGrab.AppSetting.get_Current()
+   在 BarrageGrab.Proxy.TitaniumProxy..ctor()
+   在 BarrageGrab.WssBarrageGrab..ctor()
+   在 BarrageGrab.WsBarrageServer..ctor()
+   在 BarrageGrab.AppRuntime.Init()
+   在 BarrageGrab.Program.Init()
+   在 BarrageGrab.Program.Main(String[] args) 
+
+
+2024-07-17 10:10:47.7390|ERROR| 程序初始化错误 System.TypeInitializationException: “BarrageGrab.AppSetting”的类型初始值设定项引发异常。 ---> System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 BarrageGrab.AppSetting..ctor()
+   在 BarrageGrab.AppSetting..cctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 BarrageGrab.AppSetting.get_Current()
+   在 BarrageGrab.Proxy.TitaniumProxy..ctor()
+   在 BarrageGrab.WssBarrageGrab..ctor()
+   在 BarrageGrab.WsBarrageServer..ctor()
+   在 BarrageGrab.AppRuntime.Init()
+   在 BarrageGrab.Program.Init()
+   在 BarrageGrab.Program.Main(String[] args) 
+
+
