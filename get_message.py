@@ -118,7 +118,12 @@ def save_pop_up_message(nickname, content):
     filename_date = datetime.datetime.now().strftime("%Y-%m-%d")
 
     # 定义文件名
-    filename = "message/" + filename_date + "TiktokPopUpRecord.txt"
+    directory = "message"
+    filename = os.path.join(directory, f"{filename_date}TiktokPopUpRecord.txt")
+
+    # 检查文件夹是否存在，如果不存在则创建
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     # 检查文件是否存在，如果不存在则创建
     if not os.path.exists(filename):
