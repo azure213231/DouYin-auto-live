@@ -2,6 +2,8 @@ import asyncio,json
 import websockets
 import asyncio
 import redis
+import datetime
+import os
 
 list_name = 'douyin'
 # key_list = ('w', 's', 'a', 'd', 'j', 'k', 'u', 'i', 'z', 'x', 'f', 'enter', 'shift', 'backspace')
@@ -29,6 +31,11 @@ async def process():
                 if message.get("Type") == 1:
                     Data = json.loads(message.get("Data"))
                     speak_message = Data.get("Content")
+
+                    # 保存弹幕
+                    User = Data.get("User")
+                    nick_name = User.get("Nickname")
+                    save_pop_up_message(nick_name,speak_message)
 
                     r = init_redis()
                     found_key = None
@@ -103,6 +110,25 @@ async def process():
                 print('连接已经关闭')
                 print(e)
                 continue
+
+# 保存弹幕信息
+def save_pop_up_message(nickname, content):
+    # 获取当前时间
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    filename_date = datetime.datetime.now().strftime("%Y-%m-%d")
+
+    # 定义文件名
+    filename = "message/" + filename_date + "TiktokPopUpRecord.txt"
+
+    # 检查文件是否存在，如果不存在则创建
+    if not os.path.exists(filename):
+        with open(filename, "w", encoding="utf-8") as file:
+            file.write("时间 - 用户昵称: 消息内容\n")  # 写入表头
+
+    # 以追加模式打开文件并写入内容
+    with open(filename, "a", encoding="utf-8") as file:
+        file.write(f"{current_time} - {nickname}: {content}\n")
+        print('弹幕已记录')
 
 asyncio.run(process())
 
