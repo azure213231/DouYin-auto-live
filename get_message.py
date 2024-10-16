@@ -38,7 +38,7 @@ async def process():
                     # 保存弹幕
                     User = Data.get("User")
                     nick_name = User.get("Nickname")
-                    # save_pop_up_message(nick_name,speak_message)
+                    save_pop_up_message(nick_name,speak_message)
 
                     r = init_redis()
                     found_key = None
