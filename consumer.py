@@ -121,7 +121,7 @@ def control(key_name):
         if key_name == '点赞数300小日子':
             # 点赞触发快捷键
             print('触发点赞事件：点赞数300小日子')
-            pyautogui.hotkey('ctrl', '10')
+            pyautogui.hotkey('alt', '1')
             time.sleep(press_sec)
 
     # 礼物
