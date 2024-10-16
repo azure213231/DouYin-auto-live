@@ -12,9 +12,8 @@ press_sec = 0.5
 list_name = 'douyin'
 # key_list = ('w', 's', 'a', 'd', 'j', 'k', 'u', 'i', 'z', 'x', 'f', 'enter', 'shift', 'backspace')
 key_list = ('000','666', '888','999')  #接收的指令白名单
-last_like_count = 0 #上次点赞触发特效数量
-min_like_count = 100 #点赞最小触发数量
 gift_key_list = ('小心心','玫瑰','抖音','人气票')  #接收的礼物指令白名单
+like_key_list = ('点赞数100流星雨','点赞数300小日子')  #点赞指令白名单
 
 def init_redis():
     r = redis.Redis(host='localhost', port=6379, decode_responses=True)
@@ -71,171 +70,85 @@ def control(key_name):
 
     focus_window('OBS')
 
-    # print("\033[发出指令:{}\033[0m".format(key_name))
 
     # 弹幕
     if key_name in key_list:
-        # press_key = '';
 
         if key_name == '000' or key_name == '000':
-            press_key = 'R'
-            # pyautogui.keyDown(press_key)
             pyautogui.hotkey('ctrl', '1')
             time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            # time.sleep(press_sec)
 
         if key_name == '666' or key_name == '666':
-            press_key = 'R'
-            # pyautogui.keyDown(press_key)
             pyautogui.hotkey('ctrl', '2')
             time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            # time.sleep(press_sec)
 
         if key_name == '888' or key_name == '888':
-            press_key = 'R'
-            # pyautogui.keyDown(press_key)
             pyautogui.hotkey('ctrl', '3')
             time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            # time.sleep(press_sec)
 
         if key_name == '999' or key_name == '999':
-            press_key = 'R'
-            # pyautogui.keyDown(press_key)
             pyautogui.hotkey('ctrl', '4')
             time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            # time.sleep(press_sec)
 
         # if key_name == '333' or key_name == '333':
-        #     press_key = 'R'
-        #     # pyautogui.keyDown(press_key)
         #     pyautogui.hotkey('ctrl', '9')
         #     time.sleep(press_sec)
-        #     # pyautogui.keyUp(key_name)
-        #     # time.sleep(press_sec)
         #
         # if key_name == '灯' or key_name == '灯':
-        #     press_key = 'R'
-        #     # pyautogui.keyDown(press_key)
         #     pyautogui.hotkey('ctrl', '6')
         #     time.sleep(press_sec)
-        #     # pyautogui.keyUp(key_name)
-        #     # time.sleep(press_sec)
         #
         # if key_name == '秋' or key_name == '秋':
-        #     press_key = 'R'
-        #     # pyautogui.keyDown(press_key)
         #     pyautogui.hotkey('ctrl', '7')
         #     time.sleep(press_sec)
-        #     # pyautogui.keyUp(key_name)
-        #     # time.sleep(press_sec)
         #
         # if key_name == '雪' or key_name == '雪':
-        #     press_key = 'R'
-        #     # pyautogui.keyDown(press_key)
         #     pyautogui.hotkey('ctrl', '8')
         #     time.sleep(press_sec)
-        #     # pyautogui.keyUp(key_name)
-        #     # time.sleep(press_sec)
         #
         # if key_name == '季' or key_name == '季':
-        #     press_key = 'R'
-        #     # pyautogui.keyDown(press_key)
         #     pyautogui.hotkey('ctrl', '9')
         #     time.sleep(press_sec)
-        #     # pyautogui.keyUp(key_name)
-        #     # time.sleep(press_sec)
-
-        if press_key != '':
-            print("发出指令: " + key_name)
-            # time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            print("结束指令", key_name)
 
     # 点赞
-    if 'like:' in key_name:
-        # 使用 split() 方法分割字符串
-        parts = key_name.split(':')
+    if key_name in like_key_list:
+        if key_name == '点赞数100流星雨':
+            # 点赞触发快捷键
+            print('触发点赞事件：点赞数100流星雨')
+            pyautogui.hotkey('ctrl', '9')
+            time.sleep(press_sec)
 
-        # 获取冒号后的数字
-        if len(parts) > 1 and parts[1].isdigit():
-            like_count = int(parts[1])  # 取冒号后的部分
-            if like_count - last_like_count >= min_like_count:
-                # 点赞触发快捷键
-                print('触发点赞事件：' + str(like_count))
-                last_like_count = like_count
-                pyautogui.hotkey('ctrl', '9')
-                time.sleep(press_sec)
+        if key_name == '点赞数300小日子':
+            # 点赞触发快捷键
+            print('触发点赞事件：点赞数300小日子')
+            pyautogui.hotkey('ctrl', '10')
+            time.sleep(press_sec)
 
     # 礼物
     if key_name in gift_key_list:
-        press_key = '';
 
         if key_name == '小心心' or key_name == '小心心':
-            press_key = 'R'
-            # pyautogui.keyDown(press_key)
             pyautogui.hotkey('ctrl', '5')
             time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            # time.sleep(press_sec)
 
         # if key_name == '人气票' or key_name == '人气票':
-        #     press_key = 'R'
-        #     # pyautogui.keyDown(press_key)
         #     pyautogui.hotkey('ctrl', '8')
         #     time.sleep(press_sec)
-        #     # pyautogui.keyUp(key_name)
-        #     # time.sleep(press_sec)
 
         if key_name == '玫瑰' or key_name == '玫瑰':
-            press_key = 'R'
-            # pyautogui.keyDown(press_key)
             pyautogui.hotkey('ctrl', '7')
             time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            # time.sleep(press_sec)
 
         if key_name == '人气票' or key_name == '人气票':
-            press_key = 'R'
-            # pyautogui.keyDown(press_key)
             pyautogui.hotkey('ctrl', '6')
             time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            # time.sleep(press_sec)
 
         if key_name == '抖音' or key_name == '抖音':
-            press_key = 'R'
-            # pyautogui.keyDown(press_key)
             pyautogui.hotkey('ctrl', '8')
             time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            # time.sleep(press_sec)
 
 
-        if press_key != '':
-            print("发出指令: " + key_name)
-            # time.sleep(press_sec)
-            # pyautogui.keyUp(key_name)
-            print("结束指令", key_name)
 
-        # print("\033[发出指令:{}\033[0m".format(key_name))
-        # pyautogui.keyDown(key_name)
-
-        # if key_name == 'a' or key_name == 'd':a
-            # print("发出指令w")
-        #     pyautogui.keyDown('w')
-
-        # time.sleep(press_sec)
-        # pyautogui.keyUp(key_name)
-
-        # if key_name == 'a' or key_name == 'd':
-        #     print("发出指令w")
-        #     pyautogui.keyUp('w')
-
-        # print("结束指令", key_name)
 
 if __name__ == '__main__':
     r = init_redis()

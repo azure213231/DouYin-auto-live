@@ -9,6 +9,9 @@ list_name = 'douyin'
 # key_list = ('w', 's', 'a', 'd', 'j', 'k', 'u', 'i', 'z', 'x', 'f', 'enter', 'shift', 'backspace')
 key_list = ('000','666', '888','999')  #接收的指令白名单
 gift_key_list = ('小心心','玫瑰','抖音','人气票')  #接收的礼物指令白名单
+last_like_count = 0 #上次点赞触发特效数量
+min_like_count = 100 #点赞最小触发数量
+like_handle_count = 0 #点赞特效触发次数
 
 def init_redis():
     r = redis.Redis(host='localhost', port=6379, decode_responses=True)
@@ -16,7 +19,7 @@ def init_redis():
 
 
 async def process():
-
+    global last_like_count,like_handle_count  # 声明使用全局变量
     async with websockets.connect("ws://127.0.0.1:8888/",ping_interval=None) as ws:  #ping_interval=None 是为了防止sockets断开
         while True:
             try:
@@ -35,7 +38,7 @@ async def process():
                     # 保存弹幕
                     User = Data.get("User")
                     nick_name = User.get("Nickname")
-                    save_pop_up_message(nick_name,speak_message)
+                    # save_pop_up_message(nick_name,speak_message)
 
                     r = init_redis()
                     found_key = None
@@ -52,19 +55,19 @@ async def process():
                 # 点赞
                 if message.get("Type") == 2:
                     Data = json.loads(message.get("Data"))
-                    speak_message = Data.get("Total")
+                    like_count = Data.get("Total")
 
-                    r = init_redis()
-                    found_key = 'like:' + str(speak_message)
-                    #
-                    # for key in key_list:
-                    #     if key.lower() in speak_message.lower():
-                    #         found_key = key
-                    #         break
+                    if like_count - last_like_count >= min_like_count:
+                        last_like_count = like_count
+                        like_handle_count += 1
 
-                    if found_key:
+                        r = init_redis()
+                        found_key = '点赞数100流星雨'
+                        if(like_handle_count % 3 == 0):
+                            found_key = '点赞数300小日子'
                         print('点赞推送队列：', found_key)
                         r.rpush(list_name, found_key)
+
 
                 # 礼物
                 if message.get("Type") == 5:
