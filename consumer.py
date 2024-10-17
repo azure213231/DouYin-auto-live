@@ -6,6 +6,9 @@ import pygetwindow as gw
 import re
 import win32gui
 import win32con
+from pywinauto import Application
+from pywinauto.keyboard import send_keys
+from pywinauto.findwindows import find_window
 
 loop_sec = 0.1
 press_sec = 0.5
@@ -18,6 +21,10 @@ like_key_list = ('点赞数100流星雨','点赞数300小日子')  #点赞指令
 def init_redis():
     r = redis.Redis(host='localhost', port=6379, decode_responses=True)
     return r
+
+def init_pywinauto():
+    pywinauto = Application(backend="uia").connect(title_re="OBS")  # 如果OBS已经打
+    return pywinauto
 
 def find_window_with_partial_title(partial_title):
     matching_windows = []
@@ -60,7 +67,7 @@ def print_window_titles():
         # 打印窗口的标题
         print(window.title)
 
-def control(key_name):
+def control(pywinauto,key_name):
     global last_like_count  # 声明使用全局变量
     # print("key_name =", key_name)
     if key_name == None:
@@ -68,8 +75,21 @@ def control(key_name):
         return
     key_name = key_name.lower()
 
-    focus_window('OBS')
+    # 方式1
+    # focus_window('OBS')
 
+    #方式2
+    # # 找到OBS窗口
+    # windows = pywinauto.windows(title_re="OBS")
+    # # 遍历所有找到的窗口
+    # for win in windows:
+    #     print(win.window_text())
+    #     win.set_focus()  # 将窗口设置为活跃窗口
+
+    #方式3
+    # 找到OBS窗口
+    obs_window = pywinauto.window(title_re="OBS")
+    obs_window.set_focus()
 
     # 弹幕
     if key_name in key_list:
@@ -152,10 +172,11 @@ def control(key_name):
 
 if __name__ == '__main__':
     r = init_redis()
+    pywinauto = init_pywinauto()
     print("开始监听弹幕消息, loop_sec =", loop_sec)
     # print_window_titles()
     while True:
         key_name = r.lpop(list_name)
         r.delete(list_name)
-        control(key_name)
+        control(pywinauto,key_name)
         time.sleep(loop_sec)
