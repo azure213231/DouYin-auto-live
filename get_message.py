@@ -63,8 +63,8 @@ async def process():
 
                         r = init_redis()
                         found_key = '点赞数100流星雨'
-                        if(like_handle_count % 3 == 0):
-                            found_key = '点赞数300小日子'
+                        # if(like_handle_count % 3 == 0):
+                        #     found_key = '点赞数300小日子'
                         print('点赞推送队列：', found_key)
                         r.rpush(list_name, found_key)
 
