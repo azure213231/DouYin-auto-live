@@ -13,7 +13,10 @@ import win32gui
 import win32con
 
 # 定义消息数组
-output_texts = ['每日固定开播时间，持续优化内容，喜欢白噪音、冥想、助眠音乐的朋友可以点点关注，祝你好梦[玫瑰]','欢迎大家来到睡眠小乖，每日用雨声陪伴你入睡，喜欢的家人们记得点点关注']
+output_texts = [
+    '每日固定开播时间，持续优化内容，喜欢白噪音、冥想、助眠音乐的朋友可以点点关注，祝你好梦[玫瑰]',
+    '欢迎大家来到睡眠小乖，每日用雨声陪伴你入睡，喜欢的家人们记得点点关注'
+]
 #output_texts = []
 # 发送间隔时间（秒）
 sleep_time = 5
@@ -58,7 +61,7 @@ class ChromeAutomation:
 
     def init_chrome(self):
         # ChromeDriver 路径
-        chrome_driver_path = 'D:\\devTool\\chromedriver-win64\\chromedriver.exe'
+        chrome_driver_path = 'E:\\DevTool\\chromedriver-win64\\chromedriver.exe'
 
         # 配置 Chrome 选项
         chrome_options = Options()

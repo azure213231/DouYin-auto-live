@@ -6,9 +6,7 @@ import pygetwindow as gw
 import re
 import win32gui
 import win32con
-from pywinauto import Application
-from pywinauto.keyboard import send_keys
-from pywinauto.findwindows import find_window
+from pywinauto import Application, findwindows
 
 loop_sec = 0.1
 press_sec = 0.5
@@ -22,9 +20,19 @@ def init_redis():
     r = redis.Redis(host='localhost', port=6379, decode_responses=True)
     return r
 
+def list_all_windows():
+    windows = findwindows.find_elements()
+    for window in windows:
+        # 使用 .name 获取窗口标题
+        print(window.name)
+
 def init_pywinauto():
-    pywinauto = Application(backend="uia").connect(title_re="OBS")  # 如果OBS已经打
-    return pywinauto
+    # 使用正则表达式来匹配包含 "OBS" 的窗口标题
+    # list_all_windows()
+    app = Application(backend="uia").connect(title_re=".*OBS.*")
+    window = app.window(title_re=".*OBS.*")  # 匹配任何包含 OBS 字样的窗口
+    print("Window found:", window)
+    return app
 
 def find_window_with_partial_title(partial_title):
     matching_windows = []
