@@ -61,7 +61,7 @@ class ChromeAutomation:
 
     def init_chrome(self):
         # ChromeDriver 路径
-        chrome_driver_path = 'E:\\DevTool\\chromedriver-win64\\chromedriver.exe'
+        chrome_driver_path = 'D:\\DevTool\\chrome\\chromedriver-win64\\chromedriver.exe'
 
         # 配置 Chrome 选项
         chrome_options = Options()
@@ -81,8 +81,8 @@ class ChromeAutomation:
 
             # 等待直到元素可见
             # 创建 WebDriverWait 对象时，传入一个有效的超时值，例如 10 秒
-            chat_textarea = WebDriverWait(self.driver, 10).until(
-                EC.visibility_of_element_located((By.ID, 'chat-textarea'))
+            chat_textarea = WebDriverWait(self.driver, 5).until(
+                EC.visibility_of_element_located((By.CLASS_NAME, 'webcast-chatroom___textarea'))
             )
             # print("输入框已找到")
 
@@ -95,7 +95,7 @@ class ChromeAutomation:
             # print("填写: " + self.output_text)
 
             # 等待直到 SVG 元素可见
-            svg_element = WebDriverWait(self.driver, 10).until(
+            svg_element = WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, 'svg.webcast-chatroom___send-btn.btn-icon'))
             )
 
@@ -106,7 +106,7 @@ class ChromeAutomation:
             print("已发送: " + output_text)
 
         except Exception as e:
-            print(f"发生错误: {e}")
+            print(f"发送信息发生错误: {e}")
 
 
 if __name__ == '__main__':
