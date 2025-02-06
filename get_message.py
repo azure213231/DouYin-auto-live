@@ -28,7 +28,7 @@ async def process():
                 # 打印所有信息
                 # print(message)
                 message = json.loads(message)
-                print(  message )
+                # print(  message )
 
                 # 弹幕
                 if message.get("Type") == 1:
