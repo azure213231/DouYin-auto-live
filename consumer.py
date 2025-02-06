@@ -29,7 +29,7 @@ def list_all_windows():
 def init_pywinauto():
     # 使用正则表达式来匹配包含 "OBS" 的窗口标题
     # list_all_windows()
-    app = Application(backend="uia").connect(title_re=".*OBS.*")
+    app = Application(backend="win32").connect(title_re=".*OBS.*")
     window = app.window(title_re=".*OBS.*")  # 匹配任何包含 OBS 字样的窗口
     print("Window found:", window)
     return app
