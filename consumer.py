@@ -1,3 +1,5 @@
+import sys
+
 import pyautogui
 import pygetwindow
 import redis
@@ -27,12 +29,17 @@ def list_all_windows():
         print(window.name)
 
 def init_pywinauto():
-    # 使用正则表达式来匹配包含 "OBS" 的窗口标题
-    # list_all_windows()
-    app = Application(backend="win32").connect(title_re=".*OBS.*")
-    window = app.window(title_re=".*OBS.*")  # 匹配任何包含 OBS 字样的窗口
-    print("Window found:", window)
-    return app
+    try:
+        # 使用正则表达式来匹配包含 "OBS" 的窗口标题
+        # list_all_windows()
+        app = Application(backend="win32").connect(title_re=".*OBS.*")
+        window = app.window(title_re=".*OBS.*")  # 匹配任何包含 OBS 字样的窗口
+        print("Window found:", window)
+        return app
+    except Exception as e:
+        print(f"未找到OBS窗口")
+        sys.exit()
+
 
 def find_window_with_partial_title(partial_title):
     matching_windows = []
